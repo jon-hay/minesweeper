@@ -1,13 +1,80 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+:root {
+  --cell-dim: 30px;
+  --cell-gap: 1px;
+  --score-dim: calc(0.8 * var(--cell-dim));
+}
+
+.game {
+  margin: 5px;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.scoreboard {
+  display: flex;
+  flex-direction: row;
+  gap: var(--cell-gap);
+}
+
+.scoreboard-left {
+  display: flex;
+  flex-direction: column;
+  width: calc(6 * (var(--cell-dim) + var(--cell-gap)) - var(--cell-gap));
+  gap: var(--cell-gap);
+}
+
+.scoreboard-right {
+  display: flex;
+  flex-direction: column;
+  width: calc(2 * (var(--cell-dim) + var(--cell-gap)) - var(--cell-gap));
+  gap: var(--cell-gap);
+}
+
+.scoreboard-txt {
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  height: var(--score-dim);
+}
+
+.scoreboard-btn {
+  font-family: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: var(--score-dim);
+}
+
+.cells {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cell-gap);
+}
+
+.cell-row {
+  display: flex;
+  flex-direction: row;
+  gap: var(--cell-gap);
+}
+
+.cell {
+  width: var(--cell-dim);
+  height: var(--cell-dim);
+}
+
+.cell.revealed {
+  filter: brightness(120%);
 }
